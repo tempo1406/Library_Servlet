@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <display-name/>
+    <filter-mapping>
+        <filter-name>cookieFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>Sigup</servlet-name>
+        <servlet-class>fu.edu.library.Controllers.Sigup</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Sigup</servlet-name>
+        <url-pattern>/Sigup</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>home.html</welcome-file>
+        <welcome-file>home.jsp</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
