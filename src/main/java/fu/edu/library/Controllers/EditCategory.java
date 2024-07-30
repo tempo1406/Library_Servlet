@@ -59,9 +59,7 @@ public class EditCategory extends HttpServlet {
 				e.printStackTrace();
 			}
 
-			// Không có lỗi.
-			// Sản phẩm không tồn tại để edit.
-			// Redirect sang trang danh sách sản phẩm.
+
 			if (errorString != null && category == null) {
 				response.sendRedirect(request.getServletPath() + "/ManageCategory");
 				return;
@@ -103,16 +101,14 @@ public class EditCategory extends HttpServlet {
 		}
 		if (result == 1)
 			errorString = "Chỉnh sửa thành công";
-		// Lưu thông tin vào request attribute trước khi forward sang views.
+
 		request.setAttribute("errorString", errorString);
 		request.setAttribute("category", category);
-		// Nếu có lỗi forward sang trang edit.
+
 		if (errorString != null) {
 			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/edit_category.jsp");
 			dispatcher.forward(request, response);
 		}
-		// Nếu mọi thứ tốt đẹp.
-		// Redirect sang trang danh sách sản phẩm.
 		else {
 			response.sendRedirect(request.getContextPath() + "/ManageCategory");
 		}

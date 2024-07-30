@@ -50,7 +50,6 @@ public class Signup extends HttpServlet {
         errorString = "Mật khẩu và xác nhận mật khẩu không khớp.";
     } else {
         try {
-            // Kiểm tra email có tồn tại không
             if (userBO.isEmailExists(email)) {
                 errorString = "Email đã tồn tại. Vui lòng chọn email khác.";
             } else {
