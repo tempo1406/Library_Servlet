@@ -16,7 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 /**
- * Servlet implementation class AddCategory
+ *
+ * @author 84823
  */
 @WebServlet("/AddCategory")
 public class AddCategory extends HttpServlet {

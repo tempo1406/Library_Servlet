@@ -16,7 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 /**
- * Servlet implementation class AddReader
+ *
+ * @author 84823
  */
 @WebServlet("/AddReader")
 public class AddReader extends HttpServlet {

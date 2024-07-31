@@ -12,7 +12,10 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Random;
 
-
+/**
+ *
+ * @author 84823
+ */
 @WebServlet("/SendOTP")
 public class SendOTP extends HttpServlet {
     

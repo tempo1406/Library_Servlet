@@ -1,6 +1,7 @@
 package fu.edu.library.Controllers;
 
 import fu.edu.library.BO.BookBO;
+import fu.edu.library.DAOs.BookDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -11,64 +12,54 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
-
 /**
  * Servlet implementation class DeleteCategory
  */
 @WebServlet("/DeleteBook")
 public class DeleteBook extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	private BookBO bookBO = new BookBO();
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public DeleteBook() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    private static final long serialVersionUID = 1L;
+    private BookBO bookBO = new BookBO();
+    private BookDAO bookDao = new BookDAO();
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String id = (String) request.getParameter("id");
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public DeleteBook() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-		if (id == null) {
-			boolean result;
-			try {
-				result = bookBO.deleteAllBook();
-			} catch (ClassNotFoundException | SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} else {
-			boolean result;
-			try {
-				result = bookBO.deleteBook(id);
-			} catch (ClassNotFoundException | SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		request.setAttribute("errorString", "Đã xóa thành công");
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/ManageBook");
-		dispatcher.forward(request, response);
-	}
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+     * response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("id");
+        boolean result = false;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+        try {
+            if (id == null) {
+                result = bookBO.deleteAllBook();
+            } else {
+                result = bookBO.deleteBook(id);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+
+        request.setAttribute("errorString", result ? "Đã xóa thành công" : "Lỗi khi xóa sách");
+        response.sendRedirect(request.getContextPath() + "/ManageBook");
+    }
+
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+     * response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        doGet(request, response);
+    }
 
 }

@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 /**
- * Servlet implementation class ConfirmReader
+ *
+ * @author 84823
  */
 @WebServlet("/ConfirmReader")
 public class ConfirmReader extends HttpServlet {

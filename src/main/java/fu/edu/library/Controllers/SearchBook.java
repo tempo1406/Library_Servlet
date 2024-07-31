@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class SearchBook
+ *
+ * @author 84823
  */
 @WebServlet("/SearchBook")
 public class SearchBook extends HttpServlet {

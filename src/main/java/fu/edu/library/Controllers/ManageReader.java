@@ -15,7 +15,8 @@ import fu.edu.library.BO.ReaderBO;
 import fu.edu.library.Models.Reader;
 
 /**
- * Servlet implementation class ManageBook
+ *
+ * @author 84823
  */
 @WebServlet("/ManageReader")
 public class ManageReader extends HttpServlet {

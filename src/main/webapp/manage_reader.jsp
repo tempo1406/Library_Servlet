@@ -90,7 +90,7 @@
             <!-- /.container-fluid -->
     </section>
     <%@ include file="footer.jsp"%>
-    <!-- DataTables -->
+<!--     DataTables 
     <script src="Resources/plugins/datatables/jquery.dataTables.min.js"></script>
     <script
     src="Resources/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -98,11 +98,11 @@
     src="Resources/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
     <script
     src="Resources/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <!-- AdminLTE App -->
+     AdminLTE App 
     <script src="Resources/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
+     AdminLTE for demo purposes 
     <script src="Resources/dist/js/demo.js"></script>
-    <!-- page script -->
+     page script 
     <script>
 		$(function() {
 			$("#example1").DataTable({
@@ -119,6 +119,6 @@
 				"responsive" : true,
 			});
 		});
-    </script>
+    </script>-->
     
     

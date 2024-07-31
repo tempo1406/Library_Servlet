@@ -25,7 +25,7 @@
             <section class="verify-otp">
                 <div class="container">
                     <div class="verify-otp-content">
-                        <h2 class="form-title" style="text-align: center">Xác minh OTP</h2>
+                        <h2 class="form-title">Xác minh OTP</h2>
                         <form role="form" method="post" action="${pageContext.request.contextPath}/VerifyOTP">
                             <input type="hidden" name="email" value="${param.email}" />
                             <div class="form-group">
@@ -38,7 +38,6 @@
                             <div class="form-group form-button">
                                 <input type="submit" class="form-submit" value="Đổi mật khẩu"/>
                             </div>
-
                         </form>
                     </div>
                 </div>

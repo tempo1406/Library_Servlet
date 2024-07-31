@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ *
+ * @author 84823
+ */
 @WebServlet("/VerifyOTP")
 public class VerifyOTP extends HttpServlet {
 

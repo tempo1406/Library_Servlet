@@ -11,59 +11,49 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
 /**
  * Servlet implementation class DeleteCategory
  */
 @WebServlet("/DeleteCategory")
 public class DeleteCategory extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	private CategoryBO categoryBO = new CategoryBO();
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public DeleteCategory() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    private static final long serialVersionUID = 1L;
+    private CategoryBO categoryBO = new CategoryBO();
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String id = (String) request.getParameter("id");
-		boolean result;
-		try {
-			result = categoryBO.deleteCategory(id);
-			System.out.println("Ket qua"+result);
-			if (result == true) {
-				request.setAttribute("errorString", "Đã xóa thành công");
-			} else {
-				request.setAttribute("errorString", "Lỗi cơ sở dữ liệu");
-			}
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public DeleteCategory() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-//		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/ManageCategory");
-//		dispatcher.forward(request, response);
-		response.sendRedirect(request.getContextPath() + "/ManageCategory");
-	}
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+     * response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("id");
+        boolean result = false;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+        try {
+            result = categoryBO.deleteCategory(id);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+
+        request.setAttribute("errorString", result ? "Đã xóa thành công" : "Lỗi cơ sở dữ liệu");
+        response.sendRedirect(request.getContextPath() + "/ManageCategory");
+    }
+
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+     * response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        doGet(request, response);
+    }
 
 }

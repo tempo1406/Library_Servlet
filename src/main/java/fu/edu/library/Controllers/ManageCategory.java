@@ -15,7 +15,8 @@ import fu.edu.library.BO.CategoryBO;
 import fu.edu.library.Models.Category;
 
 /**
- * Servlet implementation class ManageCategory
+ *
+ * @author 84823
  */
 @WebServlet("/ManageCategory")
 public class ManageCategory extends HttpServlet {

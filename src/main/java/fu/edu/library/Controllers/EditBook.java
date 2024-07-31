@@ -20,7 +20,8 @@ import javax.servlet.http.Part;
 
 
 /**
- * Servlet implementation class EditCategory
+ *
+ * @author 84823
  */
 @MultipartConfig
 @WebServlet("/EditBook")
