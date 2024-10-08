@@ -49,7 +49,6 @@ public class ManageBook extends HttpServlet {
             return;
         }
 
-        // Handle deletion if action is deleteBook
         String action = request.getParameter("action");
         if ("deleteBook".equals(action)) {
             String bookId = request.getParameter("id");

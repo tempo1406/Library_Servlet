@@ -238,11 +238,11 @@ public class BookDAO {
             conn = ConnectDatabase.getMySQLConnection();
         }
         ArrayList<Book> list = new ArrayList<>();
-        int booksPerPage = 4; // Number of books per page
+        int booksPerPage = 8; 
         String sql = "SELECT * FROM book ORDER BY id DESC LIMIT ? OFFSET ?";
         PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql);
-        pstm.setInt(1, booksPerPage); // Number of books per page
-        pstm.setInt(2, (index - 1) * booksPerPage); // Offset for pagination
+        pstm.setInt(1, booksPerPage);
+        pstm.setInt(2, (index - 1) * booksPerPage); 
         ResultSet rs = pstm.executeQuery();
         while (rs.next()) {
             String id = rs.getString("id");
